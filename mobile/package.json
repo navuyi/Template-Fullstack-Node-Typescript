@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "mobile",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -8,8 +8,12 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "resolutions": {
+    "expo/expo-asset": "8.9.1"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "expo": "~48.0.18",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
@@ -19,7 +23,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.0.14",
-    "@types/react-native": "^0.72.2",
     "typescript": "^4.9.4"
   },
   "private": true
