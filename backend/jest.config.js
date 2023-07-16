@@ -5,5 +5,7 @@ module.exports = {
     testMatch: ["**/?(*.)+(spec|test).[t]s?(x)"], // only testing on *.test.ts
     //moduleDirectories: ['node_modules', '<rootDir>']
     setupFiles: ["./jest.setup.js"],
-    detectOpenHandles: true
+    detectOpenHandles: true,
+    globalSetup: "./src/test/config/setup.ts",
+    globalTeardown: "./src/test/config/teardown.ts"
 };
