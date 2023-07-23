@@ -9,6 +9,9 @@ import { User } from "./database/entities/User"
 
 import { AppDataSource } from "./database"
 import { UserRepository } from "./database/repositories/user.repository"
+import { errorHandler } from "./middleware/error"
+import { errorResponder } from "./middleware/error"
+
 
 export interface App {
     app:express.Application, 
@@ -35,14 +38,9 @@ export const createApp = async () : Promise<App> => {
     // ... 
     // ...
 
-    // Global error handling
-    app.use((error:CustomError, req:Request, res:Response, next:express.NextFunction) => {
-        const body = {
-            message: error.message,
-            data: error.data
-        }
-        res.status(error.statusCode || 500).json(body)
-    })
+    // Global error handling [NOTE - after all endpoints]
+    app.use(errorHandler)
+    app.use(errorResponder)
 
     // Start http server
     const port = process.env.NODE_ENV === "test" ? process.env.SERVER_PORT : SERVER_PORT
